@@ -2,6 +2,7 @@ package in.gmsk.techgig;
 
 public class Random {
 
+    // Class initializer may be 'static'
     {
         System.out.println("first block.");
     }
@@ -18,6 +19,6 @@ public class Random {
         new Random();
         new Random(10);
 
-        // How many times create the object executing the block.
+        // How many times init the object that time executing the block.
     }
 }
