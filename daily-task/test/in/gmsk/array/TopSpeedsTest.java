@@ -1,6 +1,11 @@
 package in.gmsk.array;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 class TopSpeedsTest {
-  
+    @Test
+    void test() {
+        TopSpeeds topSpeeds = new TopSpeeds();
+        topSpeeds.mainMethod();
+    }
 }
