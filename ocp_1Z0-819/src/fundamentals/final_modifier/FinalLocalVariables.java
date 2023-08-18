@@ -1,4 +1,4 @@
-package fundamentals;
+package fundamentals.final_modifier;
 
 public class FinalLocalVariables {
 
@@ -18,7 +18,7 @@ public class FinalLocalVariables {
      *     Which Would not be assigned a value.
      *     The compiler DOEST NOT allow the use of local variable that may not have been assign a value.
      * */
-    
+
 
     public static void printZooInfo(boolean isWeekend){
 
