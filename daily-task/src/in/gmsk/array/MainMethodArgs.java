@@ -6,6 +6,7 @@ public class MainMethodArgs {
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-h")) {
                 help = true;
+                break;
             }
         }
         if (help) {
