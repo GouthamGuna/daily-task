@@ -17,7 +17,7 @@ public class Zoo {
 
     public static void main(String[] args) {
 
-        var name = new Zoo("Java Zoo").getName();
-        System.out.println(name);
+        //var name = new Zoo("Java Zoo").getName();
+       // System.out.println(name);
     }
 }
