@@ -4,7 +4,7 @@ public class AddBinary {
 
     public String addBinary(String args1, String args2){
 
-        var result = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
         int carry = 0,
         i = args1.length() -1,
