@@ -9,7 +9,7 @@ class Chat{
     }
 
     void Chat(){
-        System.out.println("msg = " + (msg += "A"));
+        System.out.println("msg = " + (msg += " A"));
     }
 }
 
@@ -23,7 +23,7 @@ class PrivateChat extends Chat{
    /* @Override   this @override method on private chat */
 
     void Chat(){
-        System.out.println("msg = " + (msg += "B"));
+        System.out.println("msg = " + (msg += " B"));
     }
 }
 
