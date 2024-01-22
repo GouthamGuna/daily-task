@@ -1,29 +1,30 @@
 package fundamentals.constructor;
 
-class Base{
+class Base {
     int counter = 1000;
 
-    Base(){
-        Base();
+    Base() {
+        base();
     }
 
-    void Base(){
-        System.out.println("Counter = "+(++counter));
+    void base() {
+        System.out.println( "Counter = " + (++counter) );
     }
 }
 
-class Derived extends Base{
+class Derived extends Base {
     int counter = 2000;
 
-    Derived(){}
+    Derived() {
+    }
 
-    void Base(){
-        System.out.println("Derived = "+(--counter));
+    void base() {
+        System.out.println( "Derived = " + (--counter) );
     }
 }
 
 public class ConstructorExample {
     public static void main(String[] args) {
-        Base base = new Derived();
+        new Derived();
     }
 }
