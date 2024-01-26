@@ -1,4 +1,4 @@
-package in.dev.gmsk.repo;
+package main.repo;
 
 public interface Staff {
 
