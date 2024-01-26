@@ -1,13 +1,14 @@
-package in.dev.gmsk.controller;
+package main.controller;
 
-import in.dev.gmsk.repo.Staff;
-import in.dev.gmsk.repo.Student;
+
+import main.repo.Staff;
+import main.repo.Student;
 
 public class SchoolController implements Staff, Student {
     @Override
     public void staffBaseDetails() {
         int staffId1 = Staff.staffId;
-        System.out.println( "staffId1 = " + ++staffId1 );
+        System.out.println( "staffId1 = " + (++staffId1) );
     }
 
     @Override
