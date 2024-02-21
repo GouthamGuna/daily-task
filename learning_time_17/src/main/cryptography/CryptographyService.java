@@ -1,4 +1,4 @@
-package main.security;
+package main.cryptography;
 
 public interface CryptographyService {
 
@@ -13,4 +13,8 @@ public interface CryptographyService {
     void encodeStringUsingMIMETypeBase64(String originalInput);
 
     void decodeStringUsingMIMETypeBase64(String encodedString);
+
+    void ASCIIToHexConverter(String originalInput);
+
+    void HexToASCIIConverter(String asciiInputValues);
 }
