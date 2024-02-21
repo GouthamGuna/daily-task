@@ -1,4 +1,4 @@
-package main.security;
+package main.cryptography;
 
 public class Main {
     private static final CryptographyService SERVICE = new CryptographyServiceImpl();
@@ -17,5 +17,9 @@ public class Main {
         SERVICE.encodeStringUsingMIMETypeBase64( "GMSK" ); // R01TSw==
 
         SERVICE.decodeStringUsingMIMETypeBase64( "R01TSw==" );
+
+        SERVICE.ASCIIToHexConverter( "TCS" ); // 544353
+
+        SERVICE.HexToASCIIConverter( "544353" );
     }
 }
