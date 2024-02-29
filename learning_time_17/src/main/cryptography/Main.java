@@ -21,5 +21,11 @@ public class Main {
         SERVICE.ASCIIToHexConverter( "TCS" ); // 544353
 
         SERVICE.HexToASCIIConverter( "544353" );
+
+        SERVICE.SHA256Example( "admin@123" );
+
+        SERVICE.SHA256StandardCharsets( "admin@123" );
+
+        SERVICE.SHA256CustomHashedValue( SERVICE.SHA256StandardCharsetsExOne( "admin@123" ) );
     }
 }
