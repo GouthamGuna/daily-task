@@ -17,4 +17,12 @@ public interface CryptographyService {
     void ASCIIToHexConverter(String originalInput);
 
     void HexToASCIIConverter(String asciiInputValues);
+
+    void SHA256Example(String credential);
+
+    void SHA256StandardCharsets(String credential);
+
+    byte[] SHA256StandardCharsetsExOne(String credential);
+
+    void SHA256CustomHashedValue(byte[] hash);
 }
