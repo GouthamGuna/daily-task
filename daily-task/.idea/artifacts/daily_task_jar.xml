@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="daily-task:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/daily_task_jar</output-path>
-    <root id="archive" name="daily-task.jar">
-      <element id="module-output" name="daily-task" />
-      <element id="library" level="project" name="junit-4.11" />
-    </root>
-  </artifact>
-</component>

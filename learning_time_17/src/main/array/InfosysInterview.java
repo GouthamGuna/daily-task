@@ -1,5 +1,6 @@
 package main.array;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.*;
@@ -15,7 +16,7 @@ import static java.util.Arrays.*;
  * 6.) Method Reference
  * 7.) Date and Time API
  * 8.) Default and Static Interface Methods
- *</p>
+ * </p>
  * What are the SOLID principles of software design. How would you apply?
  * 1.) Single Responsibility Principle (SRP)
  * 2.) Open-Closed Principle (OCP)
