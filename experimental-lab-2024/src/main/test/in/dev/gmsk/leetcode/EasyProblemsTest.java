@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static in.dev.gmsk.leetcode.EasyProblems.*;
 
 class EasyProblemsTest {
 
@@ -32,11 +31,11 @@ class EasyProblemsTest {
      */
 
     @Test
-    void testSingleArraySorted() {
+    void singleArraySorted() {
         int[] nums1 = {1, 2, 3, 0, 0, 0};
         int[] nums2 = {2, 5, 6};
         int m = 3, n = 3;
-        int[] ints = singleArraySorted( nums1, m, nums2, n );
+        int[] ints = EasyProblems.singleArraySorted( nums1, m, nums2, n );
 
         System.out.println( "ints = " + Arrays.toString( Arrays.stream( ints ).sorted().toArray() ) );
     }
@@ -58,10 +57,10 @@ class EasyProblemsTest {
      */
 
     @Test
-    void testTwoSum() {
+    void twoSum() {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
-        int[] ints = twoSum( nums, target );
+        int[] ints = EasyProblems.twoSum( nums, target );
         System.out.println( "ints = " + Arrays.toString( Arrays.stream( ints ).toArray() ) );
     }
 
@@ -76,13 +75,13 @@ class EasyProblemsTest {
      */
 
     @Test
-    void testRemoveElement() {
+    void removeElement() {
 
         int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
         int val = 2;
 
-        int removeElement = removeElement( nums, val );
-        assertEquals( 5, removeElement);
+        int removeElement = EasyProblems.removeElement( nums, val );
+        assertEquals( 5, removeElement );
         System.out.println( "removeElement = " + removeElement );
     }
 }
