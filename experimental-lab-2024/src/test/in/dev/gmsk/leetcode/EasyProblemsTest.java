@@ -32,7 +32,7 @@ class EasyProblemsTest {
      */
 
     @Test
-    void TestSingleArraySorted() {
+    void testSingleArraySorted() {
         int[] nums1 = {1, 2, 3, 0, 0, 0};
         int[] nums2 = {2, 5, 6};
         int m = 3, n = 3;
@@ -43,25 +43,46 @@ class EasyProblemsTest {
 
     /**
      * Example 1:
-     *
+     * <p>
      * Input: nums = [2,7,11,15], target = 9
      * Output: [0,1]
      * Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
      * Example 2:
-     *
+     * <p>
      * Input: nums = [3,2,4], target = 6
      * Output: [1,2]
      * Example 3:
-     *
+     * <p>
      * Input: nums = [3,3], target = 6
      * Output: [0,1]
-     * */
+     */
 
     @Test
-    void TestTwoSum(){
-        int[] nums = {2,7,11,15};
+    void testTwoSum() {
+        int[] nums = {2, 7, 11, 15};
         int target = 9;
         int[] ints = twoSum( nums, target );
         System.out.println( "ints = " + Arrays.toString( Arrays.stream( ints ).toArray() ) );
+    }
+
+    /**
+     * Example 2:
+     * <p>
+     * Input: nums = [0,1,2,2,3,0,4,2], val = 2
+     * Output: 5, nums = [0,1,4,0,3,_,_,_]
+     * Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+     * Note that the five elements can be returned in any order.
+     * It does not matter what you leave beyond the returned k (hence they are underscores).
+     */
+
+    @Test
+    void testRemoveElement() {
+
+        int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
+        int val = 2;
+
+        int removeElement = removeElement( nums, val );
+        assertEquals( 5, removeElement);
+        System.out.println( "removeElement = " + removeElement );
     }
 }
