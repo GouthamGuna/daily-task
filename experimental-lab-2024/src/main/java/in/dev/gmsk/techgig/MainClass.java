@@ -3,7 +3,8 @@ package in.dev.gmsk.techgig;
 public class MainClass {
 
     public static void main(String[] args) {
-        System.out.println("reverseNumber = " + reverseNumber(1234));
+        int num = 1234;
+        System.out.println("reverseNumber = " + reverseNumber(num));
     }
 
     private static int reverseNumber(int num) {
