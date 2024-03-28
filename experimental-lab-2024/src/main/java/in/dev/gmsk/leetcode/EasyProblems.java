@@ -1,5 +1,6 @@
 package in.dev.gmsk.leetcode;
 
+@SuppressWarnings("ALL")
 public class EasyProblems {
 
     /**
@@ -22,7 +23,8 @@ public class EasyProblems {
      */
 
     static int[] singleArraySorted(int[] nums1, int m, int[] nums2, int n) {
-        for (int j = 0, i = m; j < n; j++) {
+        for (//noinspection ReassignedVariable
+                int j = 0, i = m; j < n; j++) {
             nums1[i] = nums2[j];
             i++;
         }
@@ -41,8 +43,10 @@ public class EasyProblems {
      */
 
     public static int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
+        for (//noinspection ReassignedVariable
+                int i = 0; i < nums.length; i++) {
+            for (//noinspection ReassignedVariable
+                    int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
                     return new int[]{i, j};
                 }
@@ -75,9 +79,11 @@ public class EasyProblems {
      */
 
     public static int removeElement(int[] nums, int val) {
+        //noinspection ReassignedVariable
         int index = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        for (//noinspection ReassignedVariable
+                int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
                 nums[index] = nums[i];
                 index++;
@@ -86,4 +92,50 @@ public class EasyProblems {
 
         return index;
     }
+
+    public static String MergeStringsAlternately(String wordOne, String wordTwo) {
+
+        StringBuilder sb = new StringBuilder();
+        //noinspection ReassignedVariable
+        int i = 0;
+
+        while (wordOne.length() > i || i < wordTwo.length()) {
+            if (i < wordOne.length()) {
+                sb.append(wordOne.charAt(i));
+            }
+            if (i < wordTwo.length()) {
+                sb.append(wordTwo.charAt(i));
+            }
+            i++;
+        }
+
+        return sb.toString();
+    }
+
+    public static String MergeStringsAlternatelyRefactor(String wordOne, String wordTwo) {
+
+        int n = Math.min(wordOne.length(), wordTwo.length());
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            sb.append(wordOne.charAt(i));
+            sb.append(wordTwo.charAt(i));
+        }
+
+        return sb.append(wordOne.substring(n)).append(wordTwo.substring(n)).toString();
+    }
+
+    public String gcdOfStrings(String str1, String str2) {
+        if (str1.length() < str2.length()) {
+            return gcdOfStrings(str2, str1); // Ensure str1 is not shorter than str2
+        }
+        if (!str1.startsWith(str2)) {
+            return ""; // str2 is not a prefix of str1, so no GCD exists
+        }
+        if (str2.isEmpty()) {
+            return str1; // The entire str1 is the GCD
+        }
+        return gcdOfStrings(str2, str1.substring(str2.length())); // Recursively find GCD
+    }
+
 }
