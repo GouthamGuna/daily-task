@@ -1,9 +1,11 @@
 package main.array;
 
+import java.util.Arrays;
+
 public class Problems {
 
-  public static void main(String[] args) {
-        int[] nums = {1,1,2};
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2};
 
         Arrays.stream(removeDuplicatesFromSortedArray(nums)).forEach(System.out::println);
 
