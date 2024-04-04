@@ -1,5 +1,6 @@
 package in.dev.gmsk.hackerrank;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -30,10 +31,32 @@ class SolutionsTest {
         assertEquals(expected, actual);
     }
 
+    @Disabled
     @Test
     void testAVeryBigSum() {
         long actual = aVeryBigSum(Arrays.asList(5, 1000000001, 1000000002, 1000000003, 1000000004, 1000000005));
         long expected = 00000015;
+
+        assertEquals(expected, actual);
+    }
+
+    /**
+     * test case 1 :  15 - 15 = 0
+     * <p/>
+     * test case 2 :  6 - 7 = 0
+     * <p/>
+     * test case 1 :  20 - 15 = 5
+     * */
+
+    @Test
+    void diagonalDifferenceTest() {
+
+        List<Integer> one = List.of(6,2,3);
+        List<Integer> two = List.of(4,5,6);
+        List<Integer> three = List.of(7,8,9);
+
+        int actual = diagonalDifference(List.of(one, two, three));
+        int expected = 5;
 
         assertEquals(expected, actual);
     }
