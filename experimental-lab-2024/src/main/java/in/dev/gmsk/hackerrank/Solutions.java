@@ -64,8 +64,25 @@ public class Solutions {
         return -1; // Element not found
     }
 
-    public static Long aVeryBigSum(List<Integer> ar){
-        return  ar.stream().filter(x -> x-- > 0).mapToLong(x -> x).sum();
+    public static Long aVeryBigSum(List<Integer> ar) {
+        return ar.stream().filter(x -> x-- > 0).mapToLong(x -> x).sum();
     }
 
+    public static int diagonalDifference(List<List<Integer>> arr) {
+
+        if (arr.size() < 2) return 0;
+
+        int result = 0;
+        int arrSize = arr.size();
+
+        for (int i = 0; i < arrSize; i++) {
+            result += arr.get(i).get(i) - arr.get(i).get(arrSize - (i + 1));
+        }
+
+        return absoluteValue(result);
+    }
+
+    private static int absoluteValue(int a) {
+        return (a < 0) ? -a : a;
+    }
 }
