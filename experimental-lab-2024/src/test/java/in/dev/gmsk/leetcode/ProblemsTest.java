@@ -33,4 +33,16 @@ class ProblemsTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void findMedianSortedArraysTest(){
+
+        // case 1: Integer[] arrOne = {1,3}, arrTwo = {2};  double expected = 2.00000;
+        Integer[] arrOne = {1,2}, arrTwo = {3,4};
+        double actual = findMedianSortedArrays.apply(arrOne, arrTwo);
+        double expected = 2.50000;
+
+        assertEquals(expected, actual);
+        // Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5
+    }
 }
