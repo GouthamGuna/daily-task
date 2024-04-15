@@ -15,11 +15,11 @@ public class LeetCode_75 {
         char[] chars = s.toCharArray();
 
         while(i<j){
-            while(i<j && !Vowels.get().contains(chars[i]+"")){
+            while(i<j && !vowels.get().contains(chars[i]+"")){
                 i++;
             }
 
-            while(i<j && !Vowels.get().contains(chars[j]+"")){
+            while(i<j && !vowels.get().contains(chars[j]+"")){
                 j--;
             }
 
@@ -34,8 +34,28 @@ public class LeetCode_75 {
         return new String(chars);
     }
 
-    private static final Supplier<String> Vowels = () -> "aeiouAEIOU";
+    // Type parameters: <T> – the type of results supplied by this supplier
 
-    private static final Function<String, Boolean> containsVowels = s -> s.contains("a") && s.contains("e")
-            && s.contains("i") && s.contains("o") && s.contains("u");
+    private static final Supplier<String> vowels = () -> "aeiouAEIOU";
+
+    public static final Function<int[], Boolean> increasingTripletSubsequence = (num) -> {
+
+        if (num == null || num.length < 3){
+            return false;
+        }
+
+        int i = Integer.MAX_VALUE, j = Integer.MIN_VALUE;
+
+        for(int n: num) {
+            if (n <= i) {
+                i = n;
+            } else if (n <= j) {
+                j = n;
+            } else {
+                return true;
+            }
+        }
+
+         return false;
+    };
 }
