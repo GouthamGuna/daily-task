@@ -27,4 +27,9 @@ class LeetCodeTest {
 
         assertFalse(actual);
     }
+
+    @Test
+    void stringCompression(){
+
+    }
 }
