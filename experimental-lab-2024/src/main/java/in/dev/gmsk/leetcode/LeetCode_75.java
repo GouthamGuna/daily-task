@@ -1,5 +1,8 @@
 package in.dev.gmsk.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -81,4 +84,23 @@ public class LeetCode_75 {
         System.arraycopy(compressedChars, 0, chars, 0, compressedChars.length);
         return sb.length();
     };
+
+    public static double findMaxAverage(int[] nums, int k) {
+
+        List<Integer> list = new ArrayList<>();
+        int sum = 0;
+        int a = 0;
+
+        for (int b = 0; b < nums.length; b++) {
+            sum += nums[b];
+
+            if (b >= k - 1) {
+                list.add(sum / k);
+                sum -= nums[a];
+                a++;
+            }
+        }
+
+        return list.stream().mapToInt(Integer::intValue).average().orElse(Double.NaN);
+    }
 }
