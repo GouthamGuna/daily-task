@@ -85,4 +85,66 @@ public class Solutions {
     private static int absoluteValue(int a) {
         return (a < 0) ? -a : a;
     }
+
+    /**
+     * Problem Overview:
+     * Given an array B, we need to determine an array A such that:
+     * <p>
+     * 1.) For all indices i, A[i] <= B[i].
+     * 2.) We want to maximize the sum of absolute differences between consecutive pairs of A.
+     */
+
+    public static int sherlockAndCostOne(List<Integer> list) {
+
+        int T = list.size();
+        int result = 0;
+
+        while (T > 0) {
+            int N = list.size();
+            int[] inputArray = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                inputArray[i] = list.get(i);
+            }
+
+            int[][] dp = new int[N][2];
+            dp[0][0] = 0;
+            dp[0][1] = 0;
+
+            for (int i = 1; i < N; i++) {
+                dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + inputArray[i - 1] - 1);
+                dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + inputArray[i] - 1);
+            }
+
+            result = Math.max(dp[N - 1][0], dp[N - 1][1]);
+            T--;
+        }
+        return result;
+    }
+
+    /**
+     * Approach:
+     * We can use dynamic programming to solve this problem efficiently. Let’s break down the approach:
+     * <p>
+     * 1.) Initialize two arrays: dp[i][0] and dp[i][1]. These arrays will store the maximum sum of absolute differences for the first i elements of the input array.
+     * 2.) Iterate through the input array from left to right:
+     * Update dp[i][0] and dp[i][1] based on the previous values and the current element.
+     * 3.) The final answer is the maximum value between dp[N-1][0] and dp[N-1][1].
+     */
+    public static int sherlockAndCostApproachTwo(List<Integer> list) {
+        int N = list.size();
+        int[][] dp = new int[N][2];
+        dp[0][0] = 0;
+        dp[0][1] = 0;
+
+        for (int i = 1; i < N; i++) {
+            int curr = list.get(i);
+            int prev = list.get(i - 1);
+
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prev - 1);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + curr - 1);
+        }
+
+        return Math.max(dp[N - 1][0], dp[N - 1][1]);
+    }
 }
