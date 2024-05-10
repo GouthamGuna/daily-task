@@ -1,8 +1,7 @@
 package in.dev.gmsk.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.swing.tree.TreeNode;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -102,5 +101,40 @@ public class LeetCode_75 {
         }
 
         return list.stream().mapToInt(Integer::intValue).average().orElse(Double.NaN);
+    }
+
+    public String longestPalindrome(String s) {
+        if(s.length() <= 1){
+            return s;
+        }
+
+        int maxLen = 1;
+        String maxStr = s.substring(0,1);
+
+        for(int i = 0; i < s.length(); i++){
+            for(int j = i + maxLen; j <= s.length(); j++){
+                if(j - i > maxLen && isPalindrome(s.substring(i, j))){
+                    maxLen = j - i;
+                    maxStr = s.substring(i ,j);
+                }
+            }
+        }
+
+        return maxStr;
+    }
+
+    private boolean  isPalindrome(String str){
+        int left = 0;
+        int right = str.length() - 1;
+
+        while(left < right){
+            if(str.charAt(left) != str.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
