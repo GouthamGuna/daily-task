@@ -60,4 +60,16 @@ class SolutionsTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void testSherlockAndCost() {
+        List<Integer> list = Arrays.asList(1, 5, 100, 2, 100, 2, 100);
+        int actualOne = sherlockAndCostOne(list);
+        int expectedOne = 396;
+        assertEquals(expectedOne, actualOne);
+
+        int actualTwo = sherlockAndCostApproachTwo(Arrays.asList(1, 5, 10, 1, 10, 1, 10));
+        int expectedTwo = 36;
+        assertEquals(expectedTwo, actualTwo);
+    }
 }
