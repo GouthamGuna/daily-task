@@ -11,51 +11,51 @@ public class CryptographyServiceImpl implements CryptographyService {
     @Override
     public void encodeStringUsingTheBasicBase64(String originalInput) {
 
-        String encodedString = Base64.getEncoder().encodeToString( originalInput.getBytes() );
+        String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
 
-        System.out.println( "encodedString = " + encodedString );
+        System.out.println("encodedString = " + encodedString);
     }
 
     @Override
     public void decodeStringUsingTheBasicBase64(String encodedString) {
 
-        byte[] decodedBytes = Base64.getDecoder().decode( encodedString );
-        String decodedString = new String( decodedBytes );
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+        String decodedString = new String(decodedBytes);
 
-        System.out.println( "decodedString = " + decodedString );
+        System.out.println("decodedString = " + decodedString);
     }
 
     @Override
     public void encodeURLAndFileNameBase64(String originalURI) {
 
-        String encodedUrl = Base64.getUrlEncoder().encodeToString( originalURI.getBytes() );
+        String encodedUrl = Base64.getUrlEncoder().encodeToString(originalURI.getBytes());
 
-        System.out.println( "encodedUrl = " + encodedUrl );
+        System.out.println("encodedUrl = " + encodedUrl);
     }
 
     @Override
     public void decodeURLAndFileNameBase64(String encodedUrl) {
-        byte[] decodedBytes = Base64.getUrlDecoder().decode( encodedUrl );
-        String decodedUrl = new String( decodedBytes );
+        byte[] decodedBytes = Base64.getUrlDecoder().decode(encodedUrl);
+        String decodedUrl = new String(decodedBytes);
 
-        System.out.println( "decodedUrl = " + decodedUrl );
+        System.out.println("decodedUrl = " + decodedUrl);
     }
 
     @Override
     public void encodeStringUsingMIMETypeBase64(String originalInput) {
 
-        String encodedString = Base64.getMimeEncoder().encodeToString( originalInput.getBytes() );
+        String encodedString = Base64.getMimeEncoder().encodeToString(originalInput.getBytes());
 
-        System.out.println( "encodedString MIME = " + encodedString );
+        System.out.println("encodedString MIME = " + encodedString);
     }
 
     @Override
     public void decodeStringUsingMIMETypeBase64(String encodedString) {
 
-        byte[] decodedBytes = Base64.getMimeDecoder().decode( encodedString );
-        String decodedString = new String( decodedBytes );
+        byte[] decodedBytes = Base64.getMimeDecoder().decode(encodedString);
+        String decodedString = new String(decodedBytes);
 
-        System.out.println( "decodedString MIME = " + decodedString );
+        System.out.println("decodedString MIME = " + decodedString);
     }
 
     @Override
@@ -64,18 +64,18 @@ public class CryptographyServiceImpl implements CryptographyService {
         StringBuilder forLoopHex = new StringBuilder();
 
         for (char c : originalInput.toCharArray()) {
-            forLoopHex.append( Integer.toHexString( c ) );
+            forLoopHex.append(Integer.toHexString(c));
         }
 
-        System.out.println( "forLoopHex = " + forLoopHex );
+        System.out.println("forLoopHex = " + forLoopHex);
 
         // Using Stream...
 
         String streamHex = originalInput.chars()
-                .mapToObj( Integer::toHexString )
-                .collect( Collectors.joining() );
+                .mapToObj(Integer::toHexString)
+                .collect(Collectors.joining());
 
-        System.out.println( "streamHex = " + streamHex );
+        System.out.println("streamHex = " + streamHex);
     }
 
     @Override
@@ -85,19 +85,19 @@ public class CryptographyServiceImpl implements CryptographyService {
 
         for (int i = 0; i < asciiInputValues.length(); i += 2) {
 
-            String str = asciiInputValues.substring( i, i + 1 );
-            forLoopASCII.append( (char) Integer.parseInt( str, 16 ) );
+            String str = asciiInputValues.substring(i, i + 1);
+            forLoopASCII.append((char) Integer.parseInt(str, 16));
         }
 
-        System.out.println( "forLoopASCII = " + forLoopASCII );
+        System.out.println("forLoopASCII = " + forLoopASCII);
 
         // Using Stream...
 
         String streamASCII = asciiInputValues.chars()
-                .mapToObj( c -> String.valueOf( (char) Integer.parseInt( "" + (char) c + (char) c, 16 ) ) )
-                .collect( Collectors.joining() );
+                .mapToObj(c -> String.valueOf((char) Integer.parseInt("" + (char) c + (char) c, 16)))
+                .collect(Collectors.joining());
 
-        System.out.println( "streamASCII = " + streamASCII );
+        System.out.println("streamASCII = " + streamASCII);
     }
 
     /**
@@ -111,15 +111,15 @@ public class CryptographyServiceImpl implements CryptographyService {
     public void SHA256Example(String credential) {
 
         try {
-            MessageDigest digest = MessageDigest.getInstance( "SHA-256" );
-            digest.update( credential.getBytes() );
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(credential.getBytes());
 
             byte[] hash = digest.digest();
-            String hexString = new String( hash );
+            String hexString = new String(hash);
 
-            System.out.println( "hexString = " + hexString );
+            System.out.println("hexString = " + hexString);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException( e );
+            throw new RuntimeException(e);
         }
     }
 
@@ -137,30 +137,30 @@ public class CryptographyServiceImpl implements CryptographyService {
 
     @Override
     public void SHA256StandardCharsets(String credential) {
-        MessageDigest digest = null;
+        MessageDigest digest;
         try {
-            digest = MessageDigest.getInstance( "SHA-256" );
+            digest = MessageDigest.getInstance("SHA-256");
             byte[] encodedHash = digest.digest(
-                    credential.getBytes( StandardCharsets.UTF_8 ) );
-            System.out.println( "encodedHash = " + Arrays.toString( encodedHash ) );
+                    credential.getBytes(StandardCharsets.UTF_8));
+            System.out.println("encodedHash = " + Arrays.toString(encodedHash));
 
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException( e );
+            throw new RuntimeException(e);
         }
     }
 
     @Override
     public byte[] SHA256StandardCharsetsExOne(String credential) {
-        MessageDigest digest = null;
+        MessageDigest digest;
         byte[] encodedHash;
 
         try {
-            digest = MessageDigest.getInstance( "SHA-256" );
+            digest = MessageDigest.getInstance("SHA-256");
             encodedHash = digest.digest(
-                    credential.getBytes( StandardCharsets.UTF_8 ) );
+                    credential.getBytes(StandardCharsets.UTF_8));
 
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException( e );
+            throw new RuntimeException(e);
         }
 
         return encodedHash;
@@ -177,16 +177,66 @@ public class CryptographyServiceImpl implements CryptographyService {
     @Override
     public void SHA256CustomHashedValue(byte[] hash) {
 
-        StringBuilder hexString = new StringBuilder( 2 * hash.length );
+        StringBuilder hexString = new StringBuilder(2 * hash.length);
 
         for (byte b : hash) {
-            String hex = Integer.toHexString( 0xff & b ); // 255
+            String hex = Integer.toHexString(0xff & b); // 255
             if (hex.length() == 1) {
-                hexString.append( '0' );
+                hexString.append('0');
             }
-            hexString.append( hex );
+            hexString.append(hex);
         }
 
-        System.out.println( "hexString = " + hexString );
+        System.out.println("hexString = " + hexString);
+    }
+
+    @Override
+    public void CaesarCipherEncrypt(String plainText, String keyword) {
+        StringBuilder ciphertext = new StringBuilder();
+        keyword = keyword.toUpperCase();
+        plainText = plainText.toUpperCase();
+
+        for (int i = 0, j = 0; i < plainText.length(); i++) {
+            char letter = plainText.charAt(i);
+
+            if (letter < 'A' || letter > 'Z') {
+                // Non-alphabetic characters are not changed
+                ciphertext.append(letter);
+                continue;
+            }
+
+            // Shift the plaintext letter by the keyword letter
+            char shift = keyword.charAt(j % keyword.length());
+            char encryptedLetter = (char) ((letter + shift - 2 * 'A') % 26 + 'A');
+            ciphertext.append(encryptedLetter);
+
+            j++;
+        }
+        System.out.printf("ciphertext = %s%n", ciphertext);
+    }
+
+    @Override
+    public void CaesarCipherDecrypt(String cipherText, String keyword) {
+        StringBuilder plaintext = new StringBuilder();
+        keyword = keyword.toUpperCase();
+        cipherText = cipherText.toUpperCase();
+
+        for (int i = 0, j = 0; i < cipherText.length(); i++) {
+            char letter = cipherText.charAt(i);
+
+            if (letter < 'A' || letter > 'Z') {
+                // Non-alphabetic characters are not changed
+                plaintext.append(letter);
+                continue;
+            }
+
+            // Shift the ciphertext letter back by the keyword letter
+            char shift = keyword.charAt(j % keyword.length());
+            char decryptedLetter = (char) ((letter - shift + 26) % 26 + 'A');
+            plaintext.append(decryptedLetter);
+
+            j++;
+        }
+        System.out.printf("plaintext = %s%n", plaintext);
     }
 }

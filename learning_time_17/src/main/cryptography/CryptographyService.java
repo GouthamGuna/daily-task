@@ -25,4 +25,8 @@ public interface CryptographyService {
     byte[] SHA256StandardCharsetsExOne(String credential);
 
     void SHA256CustomHashedValue(byte[] hash);
+
+    void CaesarCipherEncrypt(String plainText, String keyword);
+
+    void CaesarCipherDecrypt(String cipherText, String keyword);
 }
