@@ -19,6 +19,4 @@ public class _InputStreamExample {
             System.err.println(e.getMessage());
         }
     }
-
-    //
 }
