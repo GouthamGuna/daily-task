@@ -32,3 +32,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore user defined in the specific path
+src/main/general/FileDownload.java
