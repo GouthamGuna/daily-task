@@ -34,4 +34,4 @@ build/
 .vscode/
 
 # Ignore user defined in the specific path
-src/main/general/FileDownload.java
+src/main/java/in/dev/gmsk/general/FileDownload.java
