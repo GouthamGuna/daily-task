@@ -2,6 +2,8 @@ package in.dev.gmsk.leetcode;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static in.dev.gmsk.leetcode.EasyProblems.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,5 +22,11 @@ class EasyProblemsTest {
 
         assertEquals(expected, actual);
         assertEquals(expected, actualOne);
+    }
+
+    @Test
+    void testIsAcronym() {
+        String[] words = {"Hire", "Me", "Uber"};
+        assertTrue(EasyProblems.isAcronym(words, "HMU"));
     }
 }

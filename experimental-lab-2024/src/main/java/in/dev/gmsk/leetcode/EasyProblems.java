@@ -138,4 +138,32 @@ public class EasyProblems {
         return gcdOfStrings(str2, str1.substring(str2.length())); // Recursively find GCD
     }
 
+    public static boolean isAcronym(String[] words, String s) {
+
+        if (words.length < 0 && s.length() < 0) {
+            throw new IllegalArgumentException("String length must be greater than zero");
+        }
+
+        int wordIndex = 0; // Index to track the current word
+        int charIndex = 0; // Index to track the current character in the word
+
+        for (char c : s.toCharArray()) {
+            if (wordIndex < words.length && words[wordIndex].charAt(charIndex) == c) {
+                // Move to the next character in the current word
+                charIndex++;
+                if (charIndex == words[wordIndex].length()) {
+                    // Move to the next word
+                    wordIndex++;
+                    charIndex = 0;
+                }
+            } else {
+                // Character mismatch
+                return false;
+            }
+        }
+
+        // Check if all words were used
+        return wordIndex == words.length;
+    }
+
 }

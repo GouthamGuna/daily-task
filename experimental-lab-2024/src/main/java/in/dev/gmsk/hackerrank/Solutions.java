@@ -1,5 +1,8 @@
 package in.dev.gmsk.hackerrank;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -165,4 +168,47 @@ public class Solutions {
         return maxSum;
     }
 
+    // lexicographic or lexicographical order (also known as lexical order, or dictionary order)
+    public static String getSmallestAndLargest(String s, int k) {
+
+        if (k <= 0) {
+            throw new IllegalArgumentException("Invalid value for k.");
+        }
+
+        String[] testExpectedValue = {"wel", "elo", "lco", "com", "ome", "met", "eto", "toj", "oja", "ava"};
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i <= s.length() - k; i++) {
+            list.add(s.substring(i, i + k));
+        }
+        //list.add(Arrays.toString(testExpectedValue));
+        Collections.sort(list);
+
+        // System.out.println("testExpectedValue = " + Arrays.toString(testExpectedValue));
+        System.out.println("list = " + list);
+
+        return "Smallest : " + list.get(0) + " Largest : " + list.get(list.size() - 1);
+    }
+
+    public static String isPalindrome(String s) {
+
+        if (s.length() <= 1) {
+            return "Yes";
+        }
+
+        // Remove spaces and convert to lowercase for case-insensitive comparison
+        String cleanedString = s.replaceAll("\\s", "").toLowerCase();
+
+        int l = 0, r = cleanedString.length() - 1;
+
+        while (l < r) {
+            if (cleanedString.charAt(l) != cleanedString.charAt(r)) {
+                return "No";
+            }
+            l++;
+            r--;
+        }
+
+        return "Yes";
+    }
 }

@@ -72,4 +72,24 @@ class SolutionsTest {
         int expectedTwo = 36;
         assertEquals(expectedTwo, actualTwo);
     }
+
+    @Test
+    void testGetSmallestAndLargest() {
+        String result = getSmallestAndLargest("welcometojava", 3);
+
+        // actual : [wel, elc, lco, com, ome, met, eto, toj, oja, jav, ava] // before sorting
+        // actual : [ava, com, elc, eto, jav, lco, met, oja, ome, toj, wel] // after sorting
+
+        System.out.println("result = " + result);
+    }
+
+    @Test
+    void testIsPalindrome() {
+        String actual = isPalindrome("madam");
+
+        System.out.println("actual = " + actual);
+
+        String expected = "Yes";
+        assertEquals(expected, actual);
+    }
 }
