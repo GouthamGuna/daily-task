@@ -92,4 +92,14 @@ class SolutionsTest {
         String expected = "Yes";
         assertEquals(expected, actual);
     }
+
+    @Test
+    void testJavaStringTokens() {
+        javaStringTokens("                        ");
+    }
+
+    @Test
+    void testAlgorithmStairCase() {
+        algorithmStairCase(6);
+    }
 }

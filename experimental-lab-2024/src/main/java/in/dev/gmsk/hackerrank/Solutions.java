@@ -1,7 +1,6 @@
 package in.dev.gmsk.hackerrank;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -175,17 +174,12 @@ public class Solutions {
             throw new IllegalArgumentException("Invalid value for k.");
         }
 
-        String[] testExpectedValue = {"wel", "elo", "lco", "com", "ome", "met", "eto", "toj", "oja", "ava"};
         List<String> list = new ArrayList<>();
 
         for (int i = 0; i <= s.length() - k; i++) {
             list.add(s.substring(i, i + k));
         }
-        //list.add(Arrays.toString(testExpectedValue));
         Collections.sort(list);
-
-        // System.out.println("testExpectedValue = " + Arrays.toString(testExpectedValue));
-        System.out.println("list = " + list);
 
         return "Smallest : " + list.get(0) + " Largest : " + list.get(list.size() - 1);
     }
@@ -210,5 +204,37 @@ public class Solutions {
         }
 
         return "Yes";
+    }
+
+    public static void javaStringTokens(String s) {
+
+        if (s == null || s.trim().isEmpty()) {
+            System.out.println("0");
+            return;
+        }
+
+        String[] tokens = s.trim().split("[! ,?._'@]+"); // [! ,?._'@]+
+
+        System.out.println(tokens.length);
+
+        for (String token : tokens) {
+            System.out.println(token);
+        }
+    }
+
+    public static void algorithmStairCase(int n) {
+        if (n <= 0) {
+            return;
+        }
+
+        for (int r = 0; r < n; r++) {
+            for (int c = n - r - 1; c > 0; c--) {
+                System.out.print(" ");
+            }
+            for (int k = 0; k <= r; k++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
     }
 }
