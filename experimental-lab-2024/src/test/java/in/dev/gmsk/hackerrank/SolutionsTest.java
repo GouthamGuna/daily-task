@@ -102,4 +102,13 @@ class SolutionsTest {
     void testAlgorithmStairCase() {
         algorithmStairCase(6);
     }
+
+    @Test
+    void testAlgorithmMiniMaxSum() {
+       // long[] values = {1, 2, 3, 4, 5};
+        long[] values = {1, 3, 5, 7, 9};
+
+        // expected : [15, 13, 11, 9, 24]
+        algorithmMiniMaxSum(values);
+    }
 }

@@ -208,7 +208,7 @@ public class Solutions {
 
     public static void javaStringTokens(String s) {
 
-        if (s == null || s.trim().isEmpty()) {
+        if (s == null || s.trim().isEmpty()) { // s.trim().length() == 0
             System.out.println("0");
             return;
         }
@@ -236,5 +236,30 @@ public class Solutions {
             }
             System.out.println();
         }
+    }
+
+    public static void algorithmMiniMaxSum(long[] args) {
+
+        if (args == null || args.length < 4) {
+            throw new IllegalArgumentException("The input array must contain at least 4 elements.");
+        }
+
+        long minSum = Long.MAX_VALUE;
+        long maxSum = Long.MIN_VALUE;
+
+        for (int i = 0; i < args.length; i++) {
+            long sum = 0;
+            for (int j = 0; j < args.length; j++) {
+                if (j != i) {
+                    System.out.printf("args[j] = %d : sum = %d%n", args[j], sum);
+                    sum += args[j];
+                }
+            }
+            minSum = Math.min(minSum, sum);
+            maxSum = Math.max(maxSum, sum);
+            System.err.printf("minSum = %d : maxSum = %d%n", minSum, maxSum);
+        }
+
+        System.out.printf("minSum = %d maxSum = %d%n", minSum, maxSum);
     }
 }
