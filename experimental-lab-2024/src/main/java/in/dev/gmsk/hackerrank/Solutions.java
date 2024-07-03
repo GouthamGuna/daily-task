@@ -262,4 +262,61 @@ public class Solutions {
 
         System.out.printf("minSum = %d maxSum = %d%n", minSum, maxSum);
     }
+
+    /**
+     * Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero.
+     * Print the decimal value of each fraction on a new line with 6 places after the decimal.
+     * <p/>
+     * Note: This challenge introduces precision problems.
+     * The test cases are scaled to six decimal places, though answers with absolute error of up to 10-4 are acceptable.
+     */
+    public static void algorithmPlusMinus(List<Integer> arr) {
+
+        int length = arr.size();
+
+        if (length <= 0) {
+            throw new IllegalArgumentException("The input array must contain at least one element.");
+        }
+
+        double positiveCount = 0, negativeCount = 0, zeroCount = 0;
+
+        for (int num : arr) {
+            if (num > 0) {
+                positiveCount++;
+            } else if (num < 0) {
+                negativeCount++;
+            } else {
+                zeroCount++;
+            }
+        }
+
+        double positiveFraction = positiveCount / length;
+
+        double negativeFraction = negativeCount / length;
+
+        double zeroFraction = zeroCount / length;
+
+        System.out.printf(" positiveFraction = %.6f%n negativeFraction = %.6f%n zeroFraction = %.6f%n", positiveFraction, negativeFraction, zeroFraction);
+    }
+
+    //total time complexity is O(n*m)
+    public static String commonLongestPrefix(String[] str) {
+        if (str == null || str.length == 0) {
+            return "";
+        }
+
+        String prefix = str[0];
+
+        for (int i = 1; i < str.length; i++) {
+            while (!str[i].startsWith(prefix)) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+
+        return prefix;
+    }
 }

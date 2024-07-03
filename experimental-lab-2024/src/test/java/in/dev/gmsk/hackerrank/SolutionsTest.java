@@ -3,6 +3,7 @@ package in.dev.gmsk.hackerrank;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,14 +47,14 @@ class SolutionsTest {
      * test case 2 :  6 - 7 = 0
      * <p/>
      * test case 1 :  20 - 15 = 5
-     * */
+     */
 
     @Test
     void diagonalDifferenceTest() {
 
-        List<Integer> one = List.of(6,2,3);
-        List<Integer> two = List.of(4,5,6);
-        List<Integer> three = List.of(7,8,9);
+        List<Integer> one = List.of(6, 2, 3);
+        List<Integer> two = List.of(4, 5, 6);
+        List<Integer> three = List.of(7, 8, 9);
 
         int actual = diagonalDifference(List.of(one, two, three));
         int expected = 5;
@@ -105,10 +106,48 @@ class SolutionsTest {
 
     @Test
     void testAlgorithmMiniMaxSum() {
-       // long[] values = {1, 2, 3, 4, 5};
+        // long[] values = {1, 2, 3, 4, 5};
         long[] values = {1, 3, 5, 7, 9};
 
         // expected : [15, 13, 11, 9, 24]
         algorithmMiniMaxSum(values);
     }
+
+    @Test
+    void testAlgorithmPlusMinus() {
+        List<Integer> values = Arrays.asList(1, 1, 0, -1, -1);
+        algorithmPlusMinus(values);
+    }
+
+
+    @Test
+    void testCommonLongestPrefixEmptyArray() {
+        String[] str = {};
+        assertEquals("", commonLongestPrefix(str));
+    }
+
+    @Test
+    void testCommonLongestPrefixOneElementArray() {
+        String[] str = {"abc"};
+        assertEquals("abc", commonLongestPrefix(str));
+    }
+
+    @Test
+    void testCommonLongestPrefixDifferentCases() {
+        String[] str = {"aBc", "AbC", "AbCd"};
+        assertEquals("", commonLongestPrefix(str));
+    }
+
+    @Test
+    void testCommonLongestPrefixNoCommonPrefix() {
+        String[] str = {"abc", "def", "ghi"};
+        assertEquals("", commonLongestPrefix(str));
+    }
+
+    @Test
+    void testCommonLongestPrefixOneCommonPrefix() {
+        String[] str = {"abc", "abcdef", "abcdefgh"};
+        assertEquals("abc", commonLongestPrefix(str));
+    }
+
 }

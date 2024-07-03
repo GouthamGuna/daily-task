@@ -1,5 +1,7 @@
 package in.dev.gmsk.leetcode;
 
+import java.util.Arrays;
+
 @SuppressWarnings("ALL")
 public class EasyProblems {
 
@@ -164,6 +166,24 @@ public class EasyProblems {
 
         // Check if all words were used
         return wordIndex == words.length;
+    }
+
+    public static void containsDuplicate(int[] nums) {
+
+        if (nums == null || nums.length <= 0) {
+            throw new IllegalArgumentException("Array must not be null or empty");
+        }
+
+        boolean[] seen = new boolean[nums.length];
+        System.out.printf("seen length = %s, seen = %s%n", seen.length, Arrays.toString(seen));
+
+        for (int num : nums) {
+            if (seen[num]) {
+                System.out.println("Duplicate found: " + num);
+                return;
+            }
+            seen[num] = true;
+        }
     }
 
 }

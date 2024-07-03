@@ -29,4 +29,10 @@ class EasyProblemsTest {
         String[] words = {"Hire", "Me", "Uber"};
         assertTrue(EasyProblems.isAcronym(words, "HMU"));
     }
+
+    @Test
+    void testContainsDuplicate() {
+        int[] nums = {1, 2, 3, 1, 2, 3,};
+       containsDuplicate(nums);
+    }
 }
