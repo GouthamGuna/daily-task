@@ -150,4 +150,22 @@ class SolutionsTest {
         assertEquals("abc", commonLongestPrefix(str));
     }
 
+    @Test
+    void testBirthdayCakeCandles() {
+        int actual = birthdayCakeCandles(Arrays.asList(8, 2, 5, 5));
+        int expected = 2;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testTimeConversion() {
+        String actual = timeConversion("07:05:45PM");
+        String expected = "19:05:45";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testTimeConversionException() {
+        assertThrows(IllegalArgumentException.class, () -> timeConversion("07:0545PM"));
+    }
 }
