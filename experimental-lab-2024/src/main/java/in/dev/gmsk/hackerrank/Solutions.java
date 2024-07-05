@@ -1,8 +1,6 @@
 package in.dev.gmsk.hackerrank;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -274,7 +272,7 @@ public class Solutions {
 
         int length = arr.size();
 
-        if (length <= 0) {
+        if (length == 0) {
             throw new IllegalArgumentException("The input array must contain at least one element.");
         }
 
@@ -318,5 +316,40 @@ public class Solutions {
         }
 
         return prefix;
+    }
+
+    public static int birthdayCakeCandles(List<Integer> candles) {
+
+        if (candles.isEmpty()) {
+            return 0;
+        }
+
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        for (int candle : candles) {
+            countMap.put(candle, countMap.getOrDefault(candle, 0) + 1);
+        }
+
+        return Collections.max(countMap.values());
+    }
+
+    public static String timeConversion(String s) {
+        //String timeFormat = "HH:mm:ss";
+        //String amPmFormat = "a";
+
+        if (s.length() < 10) {
+            throw new IllegalArgumentException("Invalid time format.");
+        }
+
+        int hour = Integer.parseInt(s.substring(0, 2));
+        String amPm = s.substring(8);
+
+        if (amPm.equalsIgnoreCase("PM") && hour!= 12) {
+            hour += 12;
+        } else if (amPm.equalsIgnoreCase("AM") && hour == 12) {
+            hour = 0;
+        }
+
+        return String.format("%02d:%s:%s", hour, s.substring(3, 5), s.substring(6, 8));
     }
 }
