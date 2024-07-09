@@ -344,12 +344,64 @@ public class Solutions {
         int hour = Integer.parseInt(s.substring(0, 2));
         String amPm = s.substring(8);
 
-        if (amPm.equalsIgnoreCase("PM") && hour!= 12) {
+        if (amPm.equalsIgnoreCase("PM") && hour != 12) {
             hour += 12;
         } else if (amPm.equalsIgnoreCase("AM") && hour == 12) {
             hour = 0;
         }
 
         return String.format("%02d:%s:%s", hour, s.substring(3, 5), s.substring(6, 8));
+    }
+
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+
+        if (grades.isEmpty()) { // grades.size() == 0
+            throw new IllegalArgumentException("Invalid grades");
+        }
+
+        List<Integer> roundedGrades = new ArrayList<>();
+
+        for (int grade : grades) {
+
+            if (grade < 38) {
+                roundedGrades.add(grade);
+            } else {
+                int nextMultipleOfFive = ((grade / 5) + 1) * 5;
+                if (nextMultipleOfFive - grade < 3) {
+                    roundedGrades.add(nextMultipleOfFive);
+                } else {
+                    roundedGrades.add(grade);
+                }
+            }
+        }
+
+        return roundedGrades;
+    }
+
+    public static void typeCounter(String sentence) {
+
+        if (sentence == null || sentence.isEmpty()) {
+            throw new IllegalArgumentException("Invalid sentence");
+        }
+
+        int intCount = 0, doubleCount = 0, stringCount = 0;
+
+        String[] segments = sentence.split(" ");
+
+        for (String segment : segments) {
+            try {
+                Integer.parseInt(segment);
+                intCount++;
+            } catch (NumberFormatException e) {
+                try {
+                    Double.parseDouble(segment);
+                    doubleCount++;
+                } catch (NumberFormatException e2) {
+                    stringCount++;
+                }
+            }
+        }
+
+        System.out.println("String " + stringCount + "\ninteger " + intCount + "\ndouble " + doubleCount);
     }
 }

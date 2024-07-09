@@ -168,4 +168,17 @@ class SolutionsTest {
     void testTimeConversionException() {
         assertThrows(IllegalArgumentException.class, () -> timeConversion("07:0545PM"));
     }
+
+    @Test
+    void testGradingStudents() {
+        List<Integer> actual = gradingStudents(Arrays.asList(4, 73, 67, 38, 33));
+        System.out.println("actual = " + actual);
+        // 75, 67, 40, 33
+    }
+
+    @Test
+    void testTypeCounter() {
+        String s = "can you give me 10 bucks puff in 7.5 or 7";
+        typeCounter(s);
+    }
 }
