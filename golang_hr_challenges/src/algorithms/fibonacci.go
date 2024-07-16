@@ -11,6 +11,6 @@ func fib(x int64) int64 {
 
 func fibonacci(x int64, y int64) {
 	for i := x; i < y; i++ {
-		fmt.Printf("Fibonacci no :renage : %d : %d ", i, fib(i))
+		fmt.Printf("Fibonacci no : range : %d : %d\n", i, fib(i))
 	}
 }
