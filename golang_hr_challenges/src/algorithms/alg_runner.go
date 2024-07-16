@@ -10,4 +10,8 @@ func ALG_Runners() {
 	fmt.Println("Sorted Array: ", arr)
 
 	fibonacci(1, 10)
+
+	arr1 := []int{1, 3, 2, 6, 1, 2}
+
+	fmt.Printf("Divisible Sum pairs  : %d\n", divisiableBySum(arr1, 3, len(arr1)))
 }
