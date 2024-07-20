@@ -1,11 +1,11 @@
-package in.dev.gmsk.leetcode;
+package in.dev.ggs.leetcode;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static in.dev.gmsk.leetcode.LeetCode_75.*;
+import static in.dev.ggs.leetcode.LeetCode_75.*;
 
 class LeetCodeTest {
 

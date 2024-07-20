@@ -1,4 +1,4 @@
-package in.dev.gmsk.util;
+package in.dev.ggs.util;
 
 import java.util.ArrayList;
 import java.util.List;

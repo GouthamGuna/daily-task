@@ -1,6 +1,6 @@
-package in.dev.gmsk.leetcode;
+package in.dev.ggs.leetcode;
 
-import static in.dev.gmsk.leetcode.LongestPalindromicSubstring.*;
+import static in.dev.ggs.leetcode.LongestPalindromicSubstring.*;
 
 public class DynamicProgramming {
 

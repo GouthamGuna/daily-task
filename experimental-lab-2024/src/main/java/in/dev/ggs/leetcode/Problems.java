@@ -1,4 +1,4 @@
-package in.dev.gmsk.leetcode;
+package in.dev.ggs.leetcode;
 
 import java.util.Arrays;
 import java.util.function.BiFunction;

@@ -1,4 +1,4 @@
-package in.dev.gmsk.techgig;
+package in.dev.ggs.techgig;
 
 public class MainClass {
 

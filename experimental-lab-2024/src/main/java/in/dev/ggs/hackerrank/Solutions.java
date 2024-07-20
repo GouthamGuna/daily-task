@@ -1,4 +1,4 @@
-package in.dev.gmsk.hackerrank;
+package in.dev.ggs.hackerrank;
 
 import java.util.*;
 import java.util.stream.Collectors;

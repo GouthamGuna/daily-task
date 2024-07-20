@@ -1,10 +1,8 @@
-package in.dev.gmsk.leetcode;
+package in.dev.ggs.leetcode;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-import static in.dev.gmsk.leetcode.EasyProblems.*;
+import static in.dev.ggs.leetcode.EasyProblems.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EasyProblemsTest {
