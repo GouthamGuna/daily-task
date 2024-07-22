@@ -78,4 +78,44 @@ public class Problems {
 
         System.out.println(result);
     }
+
+    public static int countSubSets(int[] ar, int sum, int index) {
+
+        if (sum == 0) {
+            return 1;
+        }
+
+        if (sum < 0) {
+            return 0;
+        }
+
+        if (index == ar.length) {
+            return 0;
+        }
+
+        return countSubSets(ar, sum -  ar[index], index + 1) + countSubSets(ar, sum, index + 1);
+    }
+
+    public static int findSecondSmallestElement(int[] arr) {
+        int max1 = 0, max2 = 0;
+
+        if (arr[0] > arr[1]) {
+            max1 = arr[0];
+            max2 = arr[1];
+        } else {
+            max1 = arr[1];
+            max2 = arr[0];
+        }
+
+        for (int i = 2; i < arr.length; i++) {
+            if (arr[i] > max1) {
+                max2 = max1;
+                max1 = arr[i];
+            } else if (arr[i] > max2){
+                max2 = arr[i];
+            }
+        }
+
+        return max2;
+    }
 }

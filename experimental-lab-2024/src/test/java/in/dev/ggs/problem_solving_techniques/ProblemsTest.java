@@ -31,5 +31,27 @@ class ProblemsTest {
     @Test
     void interviewTest() {
         test();
+
+        int i = 1;
+        while (i <= 3) {
+            System.out.println( "Hello" );
+            if ( i < 2 ) {
+                System.out.println( "Hello" );
+            }
+            i++;
+        }
+    }
+
+    @Test
+    void testCountSubSets() {
+        int[] arr = {20, 10, 15, 5, 10};
+        int sum = 25;
+        System.out.println(countSubSets(arr, sum, 0));
+    }
+
+    @Test
+    void testFindSecondSmallestElement() {
+        int[] arr = {23, 77, 45, 90, 33, 88, 777, 888};
+        System.out.println(findSecondSmallestElement(arr));
     }
 }
