@@ -54,4 +54,12 @@ class ProblemsTest {
         int[] arr = {23, 77, 45, 90, 33, 88, 777, 888};
         System.out.println(findSecondSmallestElement(arr));
     }
+
+    @Test
+    void testCountDuplicatesWordsUsingStreamAPI() {
+        String s = "geeks for geeks";
+        countDuplicatesWordsUsingStreamAPI(s);
+        String s1 = removeDuplicateString(s);
+        System.out.println("s1 = " + s1);
+    }
 }

@@ -118,4 +118,84 @@ public class Problems {
 
         return max2;
     }
+
+    public static void countDuplicatesWordsUsingStreamAPI(String s) {
+
+        if (s.isEmpty()) {
+            System.out.println("Invalid Input...");
+        }
+
+        Map<String, Long> map = Arrays.stream(s.split(" "))
+                .collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+
+        map.forEach((k, v) -> {
+            if (v > 1) {
+                System.out.printf("%s -> %d\n", k, v);
+            }
+        });
+    }
+
+    /**
+     * The indexOf method in Java searches for the specified character in the given string and returns the index of the first occurrence of the character.
+     * If the character is not found in the string, the indexOf method returns -1.
+     * */
+    public static String removeDuplicateString(String s) {
+
+        if (null == s || s.isEmpty()) {
+            return "Invalid Input...";
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char temp = s.charAt(i);
+
+            if (temp != ' ') {
+                if (result.toString().indexOf(temp) == -1) {
+                    result.append(temp);
+                }
+            } else {
+                result.append(" ");
+            }
+        }
+
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        delete();
+    }
+
+    public static void delete() {
+
+        String[] ar = {"radar", "eye", "eve", "gowtham", "love", "sreeja"};
+
+        List<String> list = new ArrayList<>();
+
+        for (String s: ar) {
+            deleteTest(s, list);
+        }
+
+        System.out.println("list = " + list);
+    }
+
+    public static void deleteTest(String s, List<String> list) {
+
+        String cs = s.replaceAll("\\s", "").toLowerCase();
+        int l = 0, r = cs.length() - 1;
+        boolean isPalindrome = true;
+
+        while (l < r) {
+            if (cs.charAt(l) != cs.charAt(r)) {
+                isPalindrome = false;
+                break;
+            }
+            l++;
+            r--;
+        }
+
+        if (isPalindrome) {
+            list.add(cs);
+        }
+    }
 }
