@@ -62,4 +62,14 @@ class ProblemsTest {
         String s1 = removeDuplicateString(s);
         System.out.println("s1 = " + s1);
     }
+
+    @Test
+    void testPalindromeFinder() {
+        palindromeFinder();
+    }
+
+    @Test
+    void testComparingObjects() {
+        comparingObjects();
+    }
 }

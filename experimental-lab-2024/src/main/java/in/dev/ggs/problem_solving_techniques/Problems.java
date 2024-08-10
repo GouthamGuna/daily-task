@@ -162,24 +162,20 @@ public class Problems {
         return result.toString();
     }
 
-    public static void main(String[] args) {
-        delete();
-    }
+    public static void palindromeFinder() {
 
-    public static void delete() {
-
-        String[] ar = {"radar", "eye", "eve", "gowtham", "love", "sreeja"};
+        String[] ar = {"radar", "eye", "eve", "gowtham", "sree"};
 
         List<String> list = new ArrayList<>();
 
         for (String s: ar) {
-            deleteTest(s, list);
+            isPalindrome(s, list);
         }
 
         System.out.println("list = " + list);
     }
 
-    public static void deleteTest(String s, List<String> list) {
+    private static void isPalindrome(String s, List<String> list) {
 
         String cs = s.replaceAll("\\s", "").toLowerCase();
         int l = 0, r = cs.length() - 1;
@@ -196,6 +192,26 @@ public class Problems {
 
         if (isPalindrome) {
             list.add(cs);
+        }
+    }
+
+    public static void comparingObjects() {
+        String s1 = "hello";
+        String s2 = new String("hello");
+
+        // use == for reference equality checks (usually for primitives or singletons)
+        // which means it compares the memory locations of two objects.
+        if (s1 == s2) {
+            System.out.println("s1 and s2 are the same object");
+        } else {
+            System.out.println("s1 and s2 are different objects"); // false
+        }
+
+        // which means it compares the actual values or contents of two objects.
+        if (s1.equals(s2)) {
+            System.out.println("s1 and s2 have the same content"); // true
+        } else {
+            System.out.println("s1 and s2 have different content");
         }
     }
 }
